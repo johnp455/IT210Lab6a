@@ -44,7 +44,7 @@ class TestAPI(unittest.TestCase):
 
     # TODO: update these two values with your own.
     base_url = "http://localhost:1337"
-    cookie = "s%3AYBoUXOc4EjDa0WL6srLURB9XnJIyyR_C.5XDkk6aynFRaKtIWmyWFcPLKNunRnekhR9pPmjEsqrI"
+    cookie = "s%3AysKv2RD5KBII04yFw5kOEqBpDvcmAnIS.VjeyMWoR1%2B3ZSzSw%2BquxCexKdarqfWpBjGHK50%2B6%2B1k"
 
     # This will be ran once, when you start your tests.
     @classmethod
@@ -98,7 +98,6 @@ class TestAPI(unittest.TestCase):
         # cleanup - we don't want to conflict with other tests
         # or have a test task in our database.
         self.api.delete_task(self.cookie, task["_id"])
-        pass
 
     def test_read_all_task(self):
         response = self.api.read_all_tasks(self.cookie)
@@ -114,7 +113,6 @@ class TestAPI(unittest.TestCase):
             
             self.assertEqual(task["UserId"], user["Id"], msg="The users are not the same for all tasks.")
             # check to make sure all tasks have the same userid
-        pass
 
     def test_update_task(self):
         #create task
@@ -158,25 +156,53 @@ class TestAPI(unittest.TestCase):
 
         #read task
         response = self.api.read_task(self.cookie, task["_id"])
-        self.assertTrue(response.ok, msg=f"The Read Task failed: {response.reason}.")
+        self.assertFalse(response.ok, msg=f"The Read Task failed: {response.reason}.")
         # assumes 201 
         #task = response.json()
 
-        self.assertFalse(task["_id"], msg="Task was deleted.")
-
-        # cleanup - we don't want to conflict with other tests
-        # or have a test task in our database.
-        self.api.delete_task(self.cookie, task["_id"])
 
     def test_read_current_user(self):
         response = self.api.read_current_user(self.cookie)
         self.assertTrue(response.ok, msg=f"The User Task failed: {response.reason}.")
         # assumes 201
-        task = response.json()
+        user = response.json()
 
+        self.assertIn("Id", user) # make sure has {"Id":"..."}
+        self.assertIn("Email", user)
+        self.assertNotIn("I'm not an Id", user)
     
-    # Make more methods that begin with 'test` to test all endpoints
-    # properly work and fail when you expect them to.
+    def test_read_one_not_exist(self):
+        # make fake _id
+        _id = generate_random_text(l=24)
+        response = self.api.read_task(self.cookie, _id)
+        self.assertFalse(response.ok, msg=f"The task is there.") # 404--not ok, not found
+
+    def test_delete_not_exitst(self):
+        _id = generate_random_text(l=24)
+        response = self.api.delete_task(self.cookie, _id)
+        self.assertFalse(response.ok, msg=f"The task id is there.")
+
+    def test_update_not_exist(self):
+        _id = generate_random_text(l=24)
+        Done = True
+        response = self.api.update_task(self.cookie, _id, Done)
+        self.assertFalse(response.ok, msg=f"The task is there and updated.")
+
+    def test_delete_invalid_id(self):
+        _id = generate_random_text(l=12)
+        response = self.api.delete_task(self.cookie, _id)
+        self.assertFalse(response.ok, msg=f"The id is valid.")
+
+    def test_read_all_not_exist(self):
+        self.cookie = generate_random_text(l=24)
+        response = self.api.read_all_tasks(self.cookie)
+        self.assertFalse(response.ok, msg=f"Able to read all tasks")
+
+    def test_create_no_info(self):
+        Text = "",
+        Date = ""
+        response = self.api.create_task(self.cookie, Text, Date)
+        self.assertFalse(response.ok, msg=f"Created a task.")
 
 
 

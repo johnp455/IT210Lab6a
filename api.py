@@ -135,10 +135,13 @@ class API(object):
 
 if __name__ == "__main__":
     base_url = "http://localhost:1337"
-    cookie = "s%3AYBoUXOc4EjDa0WL6srLURB9XnJIyyR_C.5XDkk6aynFRaKtIWmyWFcPLKNunRnekhR9pPmjEsqrI"
+    cookie = "s%3AysKv2RD5KBII04yFw5kOEqBpDvcmAnIS.VjeyMWoR1%2B3ZSzSw%2BquxCexKdarqfWpBjGHK50%2B6%2B1k"
     api = API(base_url)
     response = api.read_current_user(cookie)
     print(response.ok) # true if status code is 200-299 or 300-399
     print(response.status_code) # i.e. 201, 401, 500 (internal server)
     print(response.text) # unauthorized 
     print(response.json()) # only works if text is of the form '{"key": "values"}'
+    user = response.json()
+    print("Id" in user)
+    print("Not an Id" in user)
