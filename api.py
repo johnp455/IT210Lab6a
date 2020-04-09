@@ -138,7 +138,7 @@ if __name__ == "__main__":
     base_url = "http://localhost:1337"
     cookie = "s%3A8wXkaBZxzy6jz8UrFN2l8Be5jEI75LNB.Wq4%2FzOMfo3Ioab8XQu2jbzyAxDVkVbmK9Qh4rdjCGa8"
     api = API(base_url)
-    response = api.create_task(cookie, None, None)
+    response = api.create_task(cookie, "Test the API", "2020-02-20")
     print(response.ok) # true if status code is 200-299 or 300-399
     print(response.status_code) # i.e. 201, 401, 500 (internal server)
     print(response.text) # unauthorized 
