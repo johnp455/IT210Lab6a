@@ -9,8 +9,8 @@
     is connected to. This code is also connected to the website, so as it updates the database, it can update the user's 
     website so they can be able to have those changes on an front-end app.
 ### How to Test
-    * At the bottom there is base_url. In there you need to put the site address, like your localhost or even server address 
-    that can connect to your website and database. 
+    * At the bottom there is base_url. In there you need to put the site address, like your localhost or even server 
+    address that can connect to your website and database. 
     * Under it, there is a cookie spot. When you open your front-end site, sign in and right click, then click inspect. 
     You will get a side window, click on application. You will need to get the cookie session that was created when you 
     signed in to your site. Some people it may be like todo-session, others may be connect.sid. Copy and paste the id and 
@@ -18,5 +18,5 @@
     * To be able to test each of the different apis, need to change the response code at the bootom. Keep api. 
     but change the rest to what ever api you are wanting to test. 
     * The print statements will run and make sure each of the codes are code properly and connected to the database 
-    properly. The first two prints will print true or a 200 error if the code worked properly. 
-    The last two will print out the task that was created, read, updated, or will delete the task and print the other tasks.
+    properly. The first two prints will print true or a 200 error if the code worked properly. The last two will 
+    print out the task that was created, read, updated, or will delete the task and print the other tasks.
