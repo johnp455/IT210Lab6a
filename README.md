@@ -35,5 +35,5 @@
     tests. The code in the python will output dots (ie. ...). These dots represent that each code that was tested, that
     passed. If a code failed or had and error, they will be represented by an E or an F. It will tell you want code had
     this problem.
-    * Fix the codes that had an error or fail, then test it again. If there is no error or fail, the code is coded properly
-    and that the code in your api works properly.
+    * Fix the codes that had an error or fail, then test it again. If there is no error or fail, the code is coded 
+    properly and that the code in your api works properly.
