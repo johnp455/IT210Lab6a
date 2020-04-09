@@ -1,13 +1,13 @@
 # API TESTER
 
 ## API.PI
-    This api python code runs the same CRUD operation that is run in javascript, or even in Node.js code. 
-The reason it is created in this python code, is to be able to test it and to also test my api that it is all 
-set up correctly and can be able to test if there is any errors with how the code is running.
-The api is connected to the database so that it can be able to create tasks, read all the tasks, read only, update, 
-or even delete tasks. This runs a Create, Read, Update, and Delete (CRUD) operation which will update the datbase it 
-is connected to. This code is also connected to the website, so as it updates the database, it can update the user's 
-website so they can be able to have those changes on an front-end app.
+        This api python code runs the same CRUD operation that is run in javascript, or even in Node.js code. 
+    The reason it is created in this python code, is to be able to test it and to also test my api that it is all 
+    set up correctly and can be able to test if there is any errors with how the code is running.
+    The api is connected to the database so that it can be able to create tasks, read all the tasks, read only, update, 
+    or even delete tasks. This runs a Create, Read, Update, and Delete (CRUD) operation which will update the datbase it 
+    is connected to. This code is also connected to the website, so as it updates the database, it can update the user's 
+    website so they can be able to have those changes on an front-end app.
 ### How to Test
     * At the bottom there is base_url. In there you need to put the site address, like your localhost or even server 
     address that can connect to your website and database. 
