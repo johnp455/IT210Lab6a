@@ -26,6 +26,7 @@ class API(object):
         """
         url = urljoin(self.base_url, "api/v1/items")
         data = '{ "Text": "%s", "Date": "%s" }' % (Text, Date)
+
         headers = {
             'Content-Type': 'application/json',
             'Cookie': 'connect.sid=' + cookie
@@ -135,13 +136,10 @@ class API(object):
 
 if __name__ == "__main__":
     base_url = "http://localhost:1337"
-    cookie = "s%3AysKv2RD5KBII04yFw5kOEqBpDvcmAnIS.VjeyMWoR1%2B3ZSzSw%2BquxCexKdarqfWpBjGHK50%2B6%2B1k"
+    cookie = "s%3A8wXkaBZxzy6jz8UrFN2l8Be5jEI75LNB.Wq4%2FzOMfo3Ioab8XQu2jbzyAxDVkVbmK9Qh4rdjCGa8"
     api = API(base_url)
-    response = api.read_current_user(cookie)
+    response = api.create_task(cookie, None, None)
     print(response.ok) # true if status code is 200-299 or 300-399
     print(response.status_code) # i.e. 201, 401, 500 (internal server)
     print(response.text) # unauthorized 
     print(response.json()) # only works if text is of the form '{"key": "values"}'
-    user = response.json()
-    print("Id" in user)
-    print("Not an Id" in user)

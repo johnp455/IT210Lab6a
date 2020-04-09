@@ -44,7 +44,7 @@ class TestAPI(unittest.TestCase):
 
     # TODO: update these two values with your own.
     base_url = "http://localhost:1337"
-    cookie = "s%3AysKv2RD5KBII04yFw5kOEqBpDvcmAnIS.VjeyMWoR1%2B3ZSzSw%2BquxCexKdarqfWpBjGHK50%2B6%2B1k"
+    cookie = "s%3A8wXkaBZxzy6jz8UrFN2l8Be5jEI75LNB.Wq4%2FzOMfo3Ioab8XQu2jbzyAxDVkVbmK9Qh4rdjCGa8"
 
     # This will be ran once, when you start your tests.
     @classmethod
@@ -199,8 +199,8 @@ class TestAPI(unittest.TestCase):
         self.assertFalse(response.ok, msg=f"Able to read all tasks")
 
     def test_create_no_info(self):
-        Text = "",
-        Date = ""
+        Text = ""
+        Date = "" 
         response = self.api.create_task(self.cookie, Text, Date)
         self.assertFalse(response.ok, msg=f"Created a task.")
 
