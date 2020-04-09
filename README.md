@@ -31,9 +31,9 @@
 ### How to Test
     * At the bottom of the code there is a code that runs the unittestcase that was imported from code on the back end. 
     This will run the back end code that will run your code and test it.
-    * To test it type, python test_api.py, in the terminal. This will run all or your test cases, both success and fail 
-    tests. The code in the python will output dots (ie. ...). These dots represent that each code that was tested, that 
-    passed. If a code failed or had and error, they will be represented by an E or an F. It will tell you want code had 
+    * To test it type, python test_api.py, in the terminal. This will run all or your test cases, both success and fail
+    tests. The code in the python will output dots (ie. ...). These dots represent that each code that was tested, that
+    passed. If a code failed or had and error, they will be represented by an E or an F. It will tell you want code had
     this problem.
-    * Fix the codes that had an error or fail, then test it again. If there is no error or fail, the code is coded properly 
+    * Fix the codes that had an error or fail, then test it again. If there is no error or fail, the code is coded properly
     and that the code in your api works properly.
